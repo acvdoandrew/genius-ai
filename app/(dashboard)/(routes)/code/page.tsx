@@ -21,8 +21,10 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { useRouter } from "next/navigation";
 import { ChatCompletionMessage } from "openai/resources/chat/index.mjs";
 import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const CodePage = () => {
+    const proModal = useProModal();
     const router = useRouter();
 
     const [messages, setMessages] = useState<ChatCompletionMessage[]>([]);
@@ -52,8 +54,9 @@ const CodePage = () => {
 
             form.reset();
         } catch (error: any) {
-            console.log(error);
-            //TODO: Open Pro Modal
+            if (error?.response?.status === 403) {
+                proModal.onOpen();
+            }
         } finally {
             router.refresh();
         }
