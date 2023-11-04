@@ -93,6 +93,7 @@ export const ProModal = () => {
                 </DialogHeader>
                 <DialogFooter>
                     <Button
+                        disabled={loading}
                         onClick={onSubscribe}
                         size="lg"
                         variant="premium"
