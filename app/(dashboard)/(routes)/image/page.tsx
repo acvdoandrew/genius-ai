@@ -1,5 +1,6 @@
 "use client"
 
+import toast from "react-hot-toast";
 import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,7 +20,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardFooter } from "@/components/ui/card";
 
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 const ImagePage = () => {
@@ -53,6 +53,8 @@ const ImagePage = () => {
         } catch (error: any) {
             if (error?.response?.status === 403) {
                 proModal.onOpen();
+            } else {
+                toast.error("Something went wrong")
             }
         } finally {
             router.refresh();
