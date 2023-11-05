@@ -1,5 +1,5 @@
 # Genius AI
-A Full Stack SaaS Application that provides productivy AI tools containing conversation, code, image, video, and music generation models. Handling premium subscriptions with Stripe and authentication with Clerk.
+A Full Stack SaaS Application that provides productivity AI tools containing conversation, code, image, video, and music generation models. Handling premium subscriptions with Stripe and authentication with Clerk.
 
 ## Screenshots
 ![Landing Page](https://i.imgur.com/fO2n11L.png)
